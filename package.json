@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_PATH=$NODE_PATH:./shared node --harmony .",
-    "dev": "npm run start & webpack-dev-server --progress --color",
+    "dev": "NODE_PATH=$NODE_PATH:./shared node --harmony .",
+    "start": "npm run dev & webpack-dev-server --progress --color",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
