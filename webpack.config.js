@@ -16,6 +16,13 @@ module.exports = {
     extensions:         ['', '.js', '.jsx']
   },
   module: {
+    preLoaders: [
+      {
+        test:    /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      }
+    ],
     loaders: [
       {
         test:    /\.jsx?$/,
@@ -28,6 +35,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
+  eslint: {
+    configFile: './.eslintrc'
+  },
   devtool: 'inline-source-map',
   devServer: {
     hot: true,

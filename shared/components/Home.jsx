@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 
-const Home = (props) => {
+const Home = () => {
   return (
     <div>Hello World</div>
   )
