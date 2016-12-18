@@ -8,6 +8,8 @@ import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import * as reducers from 'reducers'
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 const app = express()
 
 app.use((req, res) => {
@@ -21,9 +23,11 @@ app.use((req, res) => {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search)
     } else if (renderProps) {
       const InitialComponent = (
-        <Provider store={store}>
-          <RouterContext {...renderProps} />
-        </Provider>
+        <MuiThemeProvider>
+          <Provider store={store}>
+            <RouterContext {...renderProps} />
+          </Provider>
+        </MuiThemeProvider>
       )
       const componentHTML = renderToString(InitialComponent)
       const initialState = store.getState()

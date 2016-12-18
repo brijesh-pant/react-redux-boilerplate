@@ -1,9 +1,10 @@
 import React, {PropTypes} from 'react'
 import { connect } from 'react-redux'
+import RaisedButton from 'material-ui/RaisedButton'
 
 class HomeComponent extends React.Component {
   static propTypes = {
-    todos: PropTypes.array,
+    todos: PropTypes.object,
   }
   render () {
     const {
@@ -11,7 +12,10 @@ class HomeComponent extends React.Component {
     } = this.props
 
     return (
-      <div>Hello World - {todos.get(0)}</div>
+      <div>
+        <div>Hello World - {todos.get(0)}</div>
+        <RaisedButton label="Default" />
+      </div>
     )
   }
 }

@@ -9,6 +9,8 @@ import { fromJS } from 'immutable'
 
 import * as reducers from 'reducers'
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 let initialState = window.__INITIAL_STATE__
 
 Object.keys(initialState).
@@ -20,8 +22,10 @@ const reducer = combineReducers(reducers)
 const store = createStore(reducer, initialState)
 
 render(
-  <Provider store={store}>
-    <Router history={browserHistory} routes={routes} />
-  </Provider>,
+  <MuiThemeProvider>
+    <Provider store={store}>
+      <Router history={browserHistory} routes={routes} />
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById('app')
 )
