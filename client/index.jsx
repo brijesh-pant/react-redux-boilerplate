@@ -29,3 +29,10 @@ render(
   </MuiThemeProvider>,
   document.getElementById('app')
 )
+
+if (module.hot) {
+    module.hot.accept('reducers', () => {
+      const nextRootReducer = reducers;
+      store.replaceReducer(nextRootReducer);
+    });
+}

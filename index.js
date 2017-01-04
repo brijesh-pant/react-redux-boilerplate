@@ -1,11 +1,18 @@
 'use strict'
 
-require('babel-core/register')({})
+require('babel-register')
 
-var server = require('./server').default
+// TODO - remove NODE_PATH from package.json in npm run dev script
+// Ref. http://stackoverflow.com/questions/34683682/webpack-aliases-in-node-js-server-code
+var server = require('./devServer').default
 
-const PORT = process.env.PORT || 3000
+const port = process.env.PORT || 3000
 
-server.listen(PORT, function() {
-  console.log("Server listening on ", PORT)
+server.listen(port, function() {
+  // var host = server.address().address;
+  // var port = server.address().port;
+
+  var host = 'localhost';
+
+  console.log('app listening at http://%s:%s', host, port);
 })
