@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_PATH=$NODE_PATH:./shared node .",
-    "start": "npm run dev & webpack-dev-server --progress --color",
+    "start": "npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
