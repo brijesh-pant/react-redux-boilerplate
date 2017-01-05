@@ -8,9 +8,29 @@ import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import * as reducers from 'reducers'
 
+// webpack dev server configuration imports
+import config from './webpack.config'
+import webpack from 'webpack'
+import webpackDevMiddleware from 'webpack-dev-middleware'
+import webpackHotMiddleware from 'webpack-hot-middleware'
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const app = express()
+const compiler = webpack(config)
+
+app.use(webpackDevMiddleware(compiler, {
+  hot: true,
+  filename: 'bundle.js',
+  publicPath: config.output.publicPath,
+  stats: {
+    color: true,
+  }
+}))
+
+app.use(webpackHotMiddleware(compiler, {
+  path: '/__webpack_hmr',
+}))
 
 app.use((req, res) => {
   const reducer = combineReducers(reducers)
@@ -42,7 +62,7 @@ app.use((req, res) => {
         </head>
         <body>
           <div id="app">${componentHTML}</div>
-          <script src="/bundle.js"></script>
+          <script src="static/bundle.js"></script>
         </body>
         </html>
       `

@@ -2,14 +2,15 @@ var path    = require('path');
 var webpack = require('webpack');
 
 module.exports = {
+  devtool: 'source-map',
   entry:  [
-    'webpack-dev-server/client?http://localhost:8080/',
-    'webpack/hot/only-dev-server',
-    './client'
+    './client',
+    'webpack-hot-middleware/client'
   ],
   output: {
     path:     path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/static/'
   },
   resolve: {
     modulesDirectories: ['node_modules', 'shared'],
@@ -25,25 +26,21 @@ module.exports = {
     ],
     loaders: [
       {
-        test:    /\.jsx?$/,
+        test:    /\.(js|jsx)?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel']
+        loader: 'babel',
+        query: {
+          presets: ['react-hmre'],
+        }
       }
     ]
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
   eslint: {
     configFile: './.eslintrc'
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    hot: true,
-    proxy: {
-      '*': 'http://127.0.0.1:' + (process.env.PORT || 3000)
-    },
-    host: '127.0.0.1'
-  }
 };
