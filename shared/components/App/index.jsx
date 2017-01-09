@@ -9,7 +9,12 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <span className={styles.colorHeading}>Check</span>
+        <div className={styles.useAutoPrefixer}>
+          <div className={`${styles['box']} ${styles['box1']}`}>1</div>
+          <div className={`${styles['box']} ${styles['box2']}`}>2</div>
+          <div className={`${styles['box']} ${styles['box3']}`}>3</div>
+          <div className={`${styles['box']} ${styles['box4']}`}>4</div>
+        </div>
         <h1>
           Isomorphic React Redux
         </h1>

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist",
-    "build:webpack": "NODE_ENV=production webpack production",
+    "build:webpack": "NODE_ENV=production webpack -p --config ./webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
     "dev-server": "NODE_PATH=$NODE_PATH:./shared NODE_ENV=development node .",
     "start": "npm run dev-server",
@@ -34,6 +34,7 @@
     "redux": "^3.6.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.6.1",
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
@@ -47,6 +48,7 @@
     "eslint-plugin-react": "^6.8.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "node-sass": "^4.1.1",
+    "postcss-loader": "^1.2.1",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",

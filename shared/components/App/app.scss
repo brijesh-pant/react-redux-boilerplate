@@ -1,4 +1,14 @@
-.colorHeading {
-  background: cornsilk;
-  font-size: 26px;
+.useAutoPrefixer {
+  display: flex;
+  .box {
+    color:white;
+    font-size: 50px;
+    text-align: center;
+    text-shadow:4px 4px 0 rgba(0,0,0,0.1);
+    padding:10px;
+  }
+  .box1 { background:#1abc9c;}
+  .box2 { background:#3498db;}
+  .box3 { background:#9b59b6;}
+  .box4 { background:#34495e;}
 }
