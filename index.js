@@ -1,6 +1,14 @@
 'use strict'
 
-require('babel-register')
+require('babel-register')({
+  "presets": ["es2015", "stage-0", "react"],
+})
+require.extensions['.scss'] = () => {
+  return;
+};
+// require.extensions['.css'] = () => {
+//   return;
+// };
 
 // TODO - remove NODE_PATH from package.json in npm run dev script
 // Ref. http://stackoverflow.com/questions/34683682/webpack-aliases-in-node-js-server-code

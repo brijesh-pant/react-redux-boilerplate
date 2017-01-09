@@ -55,6 +55,7 @@ app.use((req, res) => {
         <!DOCTYPE html>
         <html lang="en">
         <head>
+          <link rel="stylesheet" href="static/styles.css">
           <title>Isomorphic React Redux</title>
           <script type="application/javascript">
             window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}

@@ -1,5 +1,6 @@
 var path    = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -31,16 +32,23 @@ module.exports = {
         loader: 'babel',
         query: {
           presets: ['react-hmre'],
-        }
+        },
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]", 'sass-loader', {
+          publicPath: '/static/'
+        }),
       }
     ]
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new ExtractTextPlugin('styles.css'),
   ],
   eslint: {
     configFile: './.eslintrc'
   },
-};
+}

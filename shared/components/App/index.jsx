@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import { Link } from 'react-router'
+import styles from './app.scss'
 
 export default class App extends Component {
   static propTypes = {
@@ -7,8 +8,11 @@ export default class App extends Component {
   }
   render() {
     return (
-      <div id="app-view">
-        <h1>Isomorphic React Redux</h1>
+      <div>
+        <span className={styles.colorHeading}>Check</span>
+        <h1>
+          Isomorphic React Redux
+        </h1>
         <Link to='/home'>GoTo Home</Link>
         <hr />
         {this.props.children}
