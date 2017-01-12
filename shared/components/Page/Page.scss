@@ -1,0 +1,39 @@
+// styling for holy grail layout
+.holyGrail, .grailBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.leftSidebar {
+  order: -1;
+}
+
+@media (min-width: 768px) {
+  .grailBody {
+    flex-direction: row;
+    flex: 1;
+  }
+  .content {
+    flex: 1;
+  }
+  .leftSidebar, .rightSidebar {
+    /* 12em is the width of the columns */
+    flex: 0 0 12em;
+  }
+}
+
+// styling for Header component
+.useAutoPrefixer {
+  display: flex;
+  .box {
+    color:white;
+    font-size: 50px;
+    text-align: center;
+    text-shadow:4px 4px 0 rgba(0,0,0,0.1);
+    padding:10px;
+  }
+  .box1 { background:#1abc9c;}
+  .box2 { background:#3498db;}
+  .box3 { background:#9b59b6;}
+  .box4 { background:#34495e;}
+}
